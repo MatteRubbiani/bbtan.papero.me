@@ -17,7 +17,7 @@ export default class GameScene extends Phaser.Scene {
         super();
         this.raw_blocks = game.blocks
         this.level = game.level
-        this.spritePosition = game.spritePosition * phaser.blockWidth
+        this.spritePosition = game.spritePosition
         this.shooting = false
         this.bulletsKilled = 0
         this.bulletsShot = 0
@@ -190,7 +190,8 @@ export default class GameScene extends Phaser.Scene {
     saveToDb(){
         const data = {
             blocks: this.raw_blocks,
-            level: this.level
+            level: this.level,
+            position: this.spritePosition
         }
         axios.post(urls.game, data)
     }

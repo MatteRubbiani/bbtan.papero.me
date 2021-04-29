@@ -144,7 +144,7 @@ function createGame(){
     })
     return {
         level: 1,
-        spritePosition: 3,
+        spritePosition: 3 * phaser.blockWidth,
         blocks: cleanBlocks
     }
 }
