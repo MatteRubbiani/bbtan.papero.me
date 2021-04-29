@@ -52,10 +52,8 @@ export default class GameScene extends Phaser.Scene {
             }
             bullet.destroy()
         })
-        this.input.on("pointerdown", () => {
-            if (!this.shooting) {
-                this.fire()
-            }
+        this.input.on("pointerup", () => {
+            this.shooting = true
         })
     }
 
@@ -68,15 +66,17 @@ export default class GameScene extends Phaser.Scene {
             let dX = this.input.x - this.spritePosition
             let m =  dY / dX
             if (m * m < .05) return null
-
+            if (this.shooting) {
+                this.fire()
+            }
             if (this.bulletsShot === 0 && !this.shooting) {
-            this.line = new Phaser.Geom.Line(
-                this.spritePosition,
-                phaser.height - (phaser.blockHeight / 2),
-                this.input.x,
-                this.input.y)
-            this.graphics.strokeLineShape(this.line);
-        }
+                this.line = new Phaser.Geom.Line(
+                    this.spritePosition,
+                    phaser.height - (phaser.blockHeight / 2),
+                    this.input.x,
+                    this.input.y)
+                this.graphics.strokeLineShape(this.line);
+            }
         }
     }
 
