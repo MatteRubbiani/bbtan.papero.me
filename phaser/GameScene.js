@@ -1,6 +1,7 @@
 import * as Phaser from "phaser";
-import {phaser, colors} from "../src/constants/constants";
+import {phaser, colors, urls} from "../src/constants/constants";
 import mitt from "mitt"
+import axios from "axios"
 
 window.mitt = window.mitt || new mitt()
 
@@ -64,7 +65,7 @@ export default class GameScene extends Phaser.Scene {
             let dX = this.input.x - this.spritePosition
             let m =  dY / dX
 
-            if (m * m < .1) return null
+            if (m * m < .05) return null
             if ((this.input.activePointer.isDown && !this.shooting) || this.shooting) {
                 this.fire()
             } else if (this.bulletsShot === 0) {
@@ -184,6 +185,14 @@ export default class GameScene extends Phaser.Scene {
         this.createBlocks()
         //fai tutto il resto
         if (this.gameOver) this.finishGame()
+    }
+
+    saveToDb(){
+        const data = {
+            blocks: this.raw_blocks,
+            level: this.level
+        }
+        axios.post(urls.game, data)
     }
 
     generateRow(numberOfBlocks, left){
