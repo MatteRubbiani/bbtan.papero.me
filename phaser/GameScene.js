@@ -57,6 +57,7 @@ export default class GameScene extends Phaser.Scene {
             this.fireX = this.input.x
             this.fireY = this.input.y
         })
+        this.checkGameEnded()
     }
 
     update() {
@@ -183,6 +184,16 @@ export default class GameScene extends Phaser.Scene {
         //fai tutto il resto
         this.saveToDb()
         if (this.gameOver) this.finishGame()
+    }
+
+    checkGameEnded(){
+        this.raw_blocks.forEach(b => {
+            if (b && b.left > 0){
+                b.y ++
+                //check game over
+                if (b.y >= 9) this.gameOver = true
+            }
+        })
     }
 
     saveToDb(){
