@@ -41,7 +41,6 @@ export default class GameScene extends Phaser.Scene {
         })
         this.physics.add.collider(this.bullets, this.bottomLines, (bullet) =>{
             if (this.bulletsKilled === 0){
-                console.log(bullet)
                 this.sprite.x = bullet.x
                 this.spritePosition = bullet.x
 
@@ -180,7 +179,6 @@ export default class GameScene extends Phaser.Scene {
         newBlocks.forEach(block => {
             if (block) this.raw_blocks.push(block)
         })
-        console.log(newBlocks)
         this.blocks.clear(true)
         this.createBlocks()
         //fai tutto il resto

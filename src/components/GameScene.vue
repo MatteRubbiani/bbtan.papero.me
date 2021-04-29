@@ -16,10 +16,14 @@ export default {
   mounted(){
     let div =  document.getElementById("parent")
     axios.get(urls.game).then(res => {
-      console.log(res.data)
+      let g = {
+        level: res.data.level,
+        spritePosition: res.data.position,
+        blocks: res.data.blocks
+      }
       if (res.data){
         this.gameScene = new Phaser.Game(config(
-            new GameScene(res.data),
+            new GameScene(g),
             div,
             phaser.width,
             phaser.height,
