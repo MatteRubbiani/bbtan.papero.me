@@ -1,10 +1,12 @@
 <template>
-  <router-view></router-view>
+  <Game></Game>
 </template>
 
 <script>
+import Game from "./views/Game";
 export default {
   name: 'App',
+  components: {Game},
 }
 </script>
 
