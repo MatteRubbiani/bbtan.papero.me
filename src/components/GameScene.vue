@@ -16,7 +16,7 @@ export default {
   mounted(){
     let div =  document.getElementById("parent")
     axios.get(urls.game).then(res => {
-      console.log(res)
+      console.log(res.data)
       if (res.data){
         this.gameScene = new Phaser.Game(config(
             new GameScene(res.data),

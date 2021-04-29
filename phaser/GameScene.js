@@ -184,6 +184,7 @@ export default class GameScene extends Phaser.Scene {
         this.blocks.clear(true)
         this.createBlocks()
         //fai tutto il resto
+        this.saveToDb()
         if (this.gameOver) this.finishGame()
     }
 
