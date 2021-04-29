@@ -54,6 +54,8 @@ export default class GameScene extends Phaser.Scene {
         })
         this.input.on("pointerup", () => {
             this.shooting = true
+            this.fireX = this.input.x
+            this.fireY = this.input.y
         })
     }
 
@@ -136,11 +138,6 @@ export default class GameScene extends Phaser.Scene {
 
     //updators
     fire() {
-        if (!this.shooting) {
-            this.fireX = this.input.x
-            this.fireY = this.input.y
-            this.shooting = true
-        }
         if (this.bulletsShot < this.level){
             if (this.time.now > this.nextFire) {
                 this.nextFire = this.time.now + this.fireRate;
