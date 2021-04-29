@@ -52,10 +52,14 @@ export default class GameScene extends Phaser.Scene {
             }
             bullet.destroy()
         })
+        this.input.on("pointerdown", () => {
+            if (!this.shooting) {
+                this.fire()
+            }
+        })
     }
 
-    update(time, delta) {
-        (time, delta)
+    update() {
         this.graphics.clear();
         if (!this.gameOver) {
             //fire
@@ -63,18 +67,16 @@ export default class GameScene extends Phaser.Scene {
             let dY = (phaser.height - (phaser.blockHeight / 2)) - this.input.y
             let dX = this.input.x - this.spritePosition
             let m =  dY / dX
-
             if (m * m < .05) return null
-            if ((this.input.activePointer.isDown && !this.shooting) || this.shooting) {
-                this.fire()
-            } else if (this.bulletsShot === 0) {
-                this.line = new Phaser.Geom.Line(
-                    this.spritePosition,
-                    phaser.height - (phaser.blockHeight / 2),
-                    this.input.x,
-                    this.input.y)
-                this.graphics.strokeLineShape(this.line);
-            }
+
+            if (this.bulletsShot === 0 && !this.shooting) {
+            this.line = new Phaser.Geom.Line(
+                this.spritePosition,
+                phaser.height - (phaser.blockHeight / 2),
+                this.input.x,
+                this.input.y)
+            this.graphics.strokeLineShape(this.line);
+        }
         }
     }
 
