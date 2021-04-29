@@ -194,6 +194,7 @@ export default class GameScene extends Phaser.Scene {
                 if (b.y >= 9) this.gameOver = true
             }
         })
+        if (this.gameOver) this.finishGame()
     }
 
     saveToDb(){
