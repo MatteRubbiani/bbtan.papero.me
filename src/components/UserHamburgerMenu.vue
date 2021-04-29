@@ -124,7 +124,7 @@ $papero-color-dark: #ffa500;
 
   .user-hamburger-menu__icon{
     position: absolute;
-    width: 10%;
+    width: calc(8% + 10px) ;
     height: min-content;
     right: calc(-10% - 20px);
     top: 20px;
