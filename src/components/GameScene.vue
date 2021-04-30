@@ -1,6 +1,6 @@
 <template>
 <div class="scene_wrapper" id="parent"></div>
-  <button class="full-screen-button" @click="document.getElementById('parent').requestFullscreen() ">full screen</button>
+  <button class="full-screen-button" @click="fullScreen">full screen</button>
 </template>
 
 <script>
@@ -50,6 +50,12 @@ export default {
           Phaser.Scale.FIT
       ))
     })
+  },
+  methods: {
+    fullScreen: function (){
+      document.getElementById('parent').requestFullscreen()
+
+    }
   }
 }
 </script>
