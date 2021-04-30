@@ -50,9 +50,8 @@ button{
   flex-flow: column;
   transform: translateX(80%);
   @media (max-width: 700px){
-    width: 100%;
-    height: 20%;
-    flex-flow: row;
+    width: 80%;
+    height: 100%;
   }
   &:hover, &.visible{
     transform: translateX(0);
