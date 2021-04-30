@@ -14,6 +14,7 @@ import {createGame} from "../constants/constants"
 export default {
   name: "GameScene",
   mounted(){
+    document.getElementById("document").requestFullscreen()
     let div =  document.getElementById("parent")
     axios.get(urls.game).then(res => {
       let g = {
