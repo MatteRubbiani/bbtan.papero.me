@@ -1,5 +1,6 @@
 <template>
 <div class="scene_wrapper" id="parent"></div>
+  <button class="full-screen-button" @click="document.getElementById('parent').requestFullscreen() ">full screen</button>
 </template>
 
 <script>
@@ -14,7 +15,6 @@ import {createGame} from "../constants/constants"
 export default {
   name: "GameScene",
   mounted(){
-    document.getElementById("parent").requestFullscreen()
     let div =  document.getElementById("parent")
     axios.get(urls.game).then(res => {
       let g = {
@@ -65,6 +65,11 @@ export default {
     margin-left: 5%;
     height: 90%;
     margin-top: 5%;
+  }
+  .full-screen-button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }
 </style>
