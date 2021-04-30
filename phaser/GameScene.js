@@ -77,7 +77,7 @@ export default class GameScene extends Phaser.Scene {
             }
             if (this.bulletsShot === 0 && !this.shooting) {
                 this.line = new Phaser.Geom.Line(
-                    this.spritePosition,
+                    this.spritePosition + phaser.blockWidth,
                     phaser.height - (phaser.blockHeight / 2),
                     this.input.x,
                     this.input.y)
