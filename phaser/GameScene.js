@@ -40,7 +40,7 @@ export default class GameScene extends Phaser.Scene {
             this.removeLifeFromBlock(block)
         })
         this.physics.add.collider(this.bullets, this.bottomLines, (bullet) =>{
-            if (this.bulletsKilled === 0){
+            if (this.bulletsKilled === 0 && !this.shooting){
                 this.sprite.x = bullet.x
                 this.spritePosition = bullet.x
 
