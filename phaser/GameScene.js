@@ -77,8 +77,8 @@ export default class GameScene extends Phaser.Scene {
             }
             if (this.bulletsShot === 0 && !this.shooting) {
                 this.line = new Phaser.Geom.Line(
-                    this.spritePosition + phaser.blockWidth,
-                    phaser.height - (phaser.blockHeight / 2),
+                    this.spritePosition + 28, // ho aggiunto meta della larghezza dello sprite
+                     phaser.height - (phaser.blockHeight / 2),
                     this.input.x,
                     this.input.y)
                 this.graphics.strokeLineShape(this.line);
@@ -125,7 +125,7 @@ export default class GameScene extends Phaser.Scene {
 
     createBullet(X, Y){
         let dY = Y - (phaser.height - (phaser.blockHeight / 2))
-        let dX = X - (this.spritePosition )
+        let dX = X - (this.spritePosition + 28) // ho aggiunto meta sprite larghezza
         let m =   dY / dX
         let angle = Math.atan(m) * 180 / 3.1415
         if (dX < 0){
@@ -133,7 +133,7 @@ export default class GameScene extends Phaser.Scene {
         }
         let {x, y} = this.physics.velocityFromAngle(angle, phaser.bulletSpeed);
         const bullet = this.bullets.create(
-        this.spritePosition,
+        this.spritePosition + 28, // aggiunto meta sprite larghezza
         phaser.height - (phaser.blockHeight / 2),
         "bullet");
         bullet.setVelocity(x, y)
