@@ -1,6 +1,9 @@
 <template>
-<div class="scene_wrapper" id="parent"></div>
-  <div  class="full-screen-button" @click="fullScreen"><img src="@/assets/fullScreen.png" alt="full screen"></div>
+<div class="scene_wrapper" id="parent">
+  <div id="fullScreenButton" class="full-screen" @click="fullScreen">
+    <img src="@/assets/fullScreen.png" alt="full screen">
+  </div>
+</div>
 </template>
 
 <script>
@@ -14,6 +17,11 @@ window.mitt = window.mitt || new mitt()
 import {createGame} from "../constants/constants"
 export default {
   name: "GameScene",
+  data(){
+    return {
+      inFullScreen: false
+    }
+  },
   mounted(){
     let div =  document.getElementById("parent")
     axios.get(urls.game).then(res => {
@@ -53,15 +61,36 @@ export default {
   },
   methods: {
     fullScreen: function (){
-      document.getElementById('parent').requestFullscreen()
-
+      let elem = document.getElementById('parent')
+      let elem1 = document.getElementById('fullScreenButton')
+      if (!this.inFullScreen){
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+          elem1.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+          elem.webkitRequestFullscreen();
+          elem1.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+          elem.msRequestFullscreen();
+          elem1.msRequestFullscreen();
+        }
+      }else{
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+          document.msExitFullscreen();
+        }
+      }
+      this.inFullScreen = !this.inFullScreen
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.scene_wrapper{
+.scene_wrapper {
   height: 80%;
   width: 50%;
   margin-left: 25%;
@@ -72,14 +101,16 @@ export default {
     height: 90%;
     margin-top: 5%;
   }
-  .full-screen-button{
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  .full-screen {
     width: 50px;
-    img{
+    position: absolute;
+    right: 20%;
+    bottom: 10%;
+    img {
       width: 100%;
     }
   }
 }
+
+
 </style>

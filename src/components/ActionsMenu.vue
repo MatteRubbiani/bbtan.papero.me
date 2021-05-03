@@ -49,6 +49,7 @@ button{
   display: flex;
   flex-flow: column;
   transform: translateX(80%);
+  z-index: 2;
   @media (max-width: 700px){
     width: 80%;
     height: 100%;

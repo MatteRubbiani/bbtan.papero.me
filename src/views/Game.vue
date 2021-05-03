@@ -78,7 +78,7 @@ export default {
 
 <style scoped lang="scss">
 $theme-color: #59007a;
-$second-color: #d7d7d7;
+$second-color: #ffffff;
 
 .home_wrapper{
   width: 100%;
