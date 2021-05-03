@@ -3,7 +3,7 @@
   <UserHamburgerMenu :show="showHamburgerMenu"
                      :src="require('@/assets/hamburger_icon_dark.png')"
                      @toggle-show="showHamburgerMenu=$event"/>
-  <ActionsMenu :highest-score="this.game.highestScore"></ActionsMenu>
+  <ActionsMenu :highest-score="game.highestScore"></ActionsMenu>
   <GameScene></GameScene>
 </div>
 </template>
