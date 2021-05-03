@@ -3,7 +3,7 @@
   <div class="home_title"><img src="@/assets/title.png" alt="title"></div>
   <div class="menu_container">
     <div class="level_info_wrapper">
-      <a class="level_info_label">level: {{level}}</a>
+      <a class="level_info_label">Highest score: {{highestScore}}</a>
     </div>
     <div class="restart_wrapper">
       <button class="restart_button" @click="restartGame">Restart</button>
@@ -21,7 +21,7 @@ window.mitt = window.mitt || new mitt()
 export default {
   name: "ActionsMenu",
   props: {
-    level: Number
+    highestScore: Number
   },
   methods: {
     restartGame: function (){

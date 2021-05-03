@@ -1,6 +1,6 @@
 <template>
 <div class="scene_wrapper" id="parent"></div>
-  <button class="full-screen-button" @click="fullScreen">full screen</button>
+  <div  class="full-screen-button" @click="fullScreen"><img src="@/assets/fullScreen.png" alt="full screen"></div>
 </template>
 
 <script>
@@ -76,6 +76,10 @@ export default {
     position: absolute;
     bottom: 0;
     right: 0;
+    width: 50px;
+    img{
+      width: 100%;
+    }
   }
 }
 </style>
