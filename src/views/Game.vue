@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       showHamburgerMenu: false,
+      game: {highestScore: 0}
     }
   },
   methods: {
