@@ -32,8 +32,6 @@ export default {
     restartGame: function (){
       window.mitt.emit("restart")
       document.getElementById("actions_menu").classList.remove("visible")
-      document.getElementById("arrow-container").classList.remove("visible")
-
       document.getElementById("quit_button").innerHTML = "Save & Quit"
     },
     changeVisible: function (){
