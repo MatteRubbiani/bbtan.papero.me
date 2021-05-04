@@ -41,7 +41,6 @@ button{
 .menu_wrapper{
   transition: .7s;
   position: fixed;
-  top: 0;
   right: 0;
   height: 100%;
   width: 30%;
@@ -50,6 +49,9 @@ button{
   flex-flow: column;
   transform: translateX(80%);
   z-index: 2;
+  @media (min-width: 700px){
+    top: 0;
+  }
   @media (max-width: 700px){
     bottom: 0 !important;
     width: 100%;
