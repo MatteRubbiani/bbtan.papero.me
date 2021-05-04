@@ -51,12 +51,16 @@ button{
   transform: translateX(80%);
   z-index: 2;
   @media (max-width: 700px){
-    width: 80%;
-    height: 100%;
+    bottom: 0 !important;
+    width: 100%;
+    height: 70%;
+    transform: translateY(60%);
   }
   &:hover, &.visible{
+    @media (max-width: 700px){
+      transform: translateY(0);
+    }
     transform: translateX(0);
-
   }
   .home_title{
     width: 100%;
