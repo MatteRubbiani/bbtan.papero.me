@@ -95,6 +95,7 @@ export default {
   width: 50%;
   margin-left: 25%;
   margin-top: 5%;
+  padding: 5px;
   @media (max-width: 700px) {
     width: 90%;
     margin-left: 5%;
