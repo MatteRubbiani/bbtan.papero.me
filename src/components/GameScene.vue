@@ -98,25 +98,29 @@ export default {
   position: absolute;
   top: 10%;
   left: 25%;
+  @media (max-width: 700px) {
+    position: fixed;
+    padding: 0;
+    top: 50px;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+  }
   .scene_wrapper {
     height: 100%;
     width: 100%;
-    @media (max-width: 700px) {
-      position: fixed;
-      padding: 0;
-      top: 50px;
-      left: 5%;
-      width: 90%;
-      height: 90%;
-    }
     .full-screen {
       width: 50px;
+      height: 50px;
       position: absolute;
-      left: 110%;
-      bottom: 0;
+      @media (min-width: 700px) {
+        left: 110%;
+        bottom: 0;
+      }
       @media (max-width: 700px){
-        bottom: 10px;
-        right: 5px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
       }
       img {
         width: 100%;
