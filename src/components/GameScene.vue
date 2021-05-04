@@ -93,6 +93,11 @@ export default {
 
 <style scoped lang="scss">
 .scene_wrapper-container{
+  width: 50%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 25%;
   .scene_wrapper {
     height: 100%;
     width: 100%;
@@ -107,8 +112,8 @@ export default {
     .full-screen {
       width: 50px;
       position: absolute;
-      right: 20%;
-      bottom: 10%;
+      left: 110%;
+      bottom: 0;
       @media (max-width: 700px){
         bottom: 10px;
         right: 5px;
