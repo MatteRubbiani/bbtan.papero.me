@@ -56,8 +56,9 @@ button{
   font-size: 200%;
 }
 .menu_wrapper_container{
-  //height: 100%;
+  height: 100%;
   width: 100%;
+  z-index: -2;
   .up-arrow-container {
     @media (min-width: 700px) {
       display: none;
