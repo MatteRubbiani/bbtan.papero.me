@@ -99,8 +99,9 @@ export default {
   @media (max-width: 700px) {
     position: fixed;
     margin: 0;
-    background-color: red;
+    padding: 0;
     top: 50px;
+    left: 5%;
     width: 90%;
     height: 90%;
   }
