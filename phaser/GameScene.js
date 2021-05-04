@@ -53,9 +53,11 @@ export default class GameScene extends Phaser.Scene {
             bullet.destroy()
         })
         this.input.on("pointerup", () => {
-            this.shooting = true
-            this.fireX = this.input.x
-            this.fireY = this.input.y
+            if (!this.shooting) {
+                this.shooting = true
+                this.fireX = this.input.x
+                this.fireY = this.input.y
+            }
         })
         this.checkGameEnded()
     }
@@ -176,6 +178,7 @@ export default class GameScene extends Phaser.Scene {
                 //check game over
                 if (b.y >= 9) this.gameOver = true
             }
+            b.textBlock.clear()
         })
         this.raw_blocks = cleanBlocks
         let newBlocks = this.generateRow(5, this.level)
