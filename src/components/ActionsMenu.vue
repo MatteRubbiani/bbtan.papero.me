@@ -64,10 +64,9 @@ button{
       display: none;
     }
     position: absolute;
-    top: 50px;
+    bottom: 5px;
     left: 5px;
     width: 50px;
-    transform: translateY(85vh);
     transition: .7s;
     z-index: 2;
 
@@ -77,7 +76,7 @@ button{
 
     &.visible {
       @media (max-width: 700px) {
-        transform: translateY(0)  rotate(180deg);
+        transform: translateY(-85vh) rotate(180deg);
       }
     }
   }
