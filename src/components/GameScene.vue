@@ -92,7 +92,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.menu_wrapper_container{
+.scene_wrapper-container{
     height: 80%;
     width: 50%;
     margin-left: 25%;
