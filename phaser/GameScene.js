@@ -240,6 +240,7 @@ export default class GameScene extends Phaser.Scene {
 
     finishGame(){
         document.getElementById("actions_menu").classList.add("visible")
+        document.getElementById("arrow-container").classList.add("visible")
         document.getElementById("quit_button").innerHTML = "Quit"
         //this.blocks.clear(true)
     }

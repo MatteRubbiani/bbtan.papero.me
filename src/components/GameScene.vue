@@ -103,7 +103,6 @@ export default {
     width: 100%;
     @media (max-width: 700px) {
       position: fixed;
-      margin: 3px;
       padding: 0;
       top: 50px;
       left: 5%;
