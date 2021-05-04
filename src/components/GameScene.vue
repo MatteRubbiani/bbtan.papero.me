@@ -98,6 +98,12 @@ export default {
   position: absolute;
   top: 10%;
   left: 25%;
+  &:fullscreen{
+    .scene_wrapper{
+      height: 80%;
+      margin-top: 10%;
+    }
+  };
   @media (max-width: 700px) {
     position: fixed;
     padding: 0;
@@ -105,14 +111,17 @@ export default {
     left: 5%;
     width: 90%;
     height: 90%;
+    &:fullscreen{
+      .scene_wrapper{
+        width: 90%;
+        margin: 5%;
+      }
+    };
   }
   .scene_wrapper {
     height: 100%;
     width: 100%;
-    &:fullscreen{
-      width: 90%;
-      margin-left: 5%;
-    }
+    background-color: red;
     .full-screen {
       width: 50px;
       height: 50px;
