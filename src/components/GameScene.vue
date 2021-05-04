@@ -97,6 +97,9 @@ export default {
   margin-top: 5%;
   padding: 5px;
   @media (max-width: 700px) {
+    position: absolute;
+    top: 50px;
+    left: 50px;
     width: 90%;
     margin-left: 5%;
     height: 90%;
