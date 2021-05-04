@@ -107,6 +107,10 @@ export default {
     position: absolute;
     right: 20%;
     bottom: 10%;
+    @media (max-width: 700px){
+      bottom: 10px;
+      right: 5px;
+    }
     img {
       width: 100%;
     }
