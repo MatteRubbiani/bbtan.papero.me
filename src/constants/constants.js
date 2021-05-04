@@ -12,7 +12,7 @@ const config = (scene, parent, width, height, scaleMode=0, defaultPhysics = "arc
                 debug: false
             }
         },
-        canvasStyle: "border: 2px solid white;",
+        canvasStyle: "border: 2px solid white; background-color: none;",
         parent,
         width,
         height,
