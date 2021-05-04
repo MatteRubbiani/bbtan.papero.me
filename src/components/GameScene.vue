@@ -101,7 +101,6 @@ export default {
   .scene_wrapper {
     height: 100%;
     width: 100%;
-    border: 2px solid white;
     @media (max-width: 700px) {
       position: fixed;
       margin: 3px;
