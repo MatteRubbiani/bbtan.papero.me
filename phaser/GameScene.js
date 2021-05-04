@@ -178,7 +178,7 @@ export default class GameScene extends Phaser.Scene {
                 //check game over
                 if (b.y >= 9) this.gameOver = true
             }
-            if (b && b.textBlock) b.textBlock.clear()
+            if (b && b.textBlock) b.textBlock.destroy()
         })
         this.raw_blocks = cleanBlocks
         let newBlocks = this.generateRow(5, this.level)
