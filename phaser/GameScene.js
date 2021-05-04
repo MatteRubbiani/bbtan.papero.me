@@ -135,7 +135,7 @@ export default class GameScene extends Phaser.Scene {
 
     createBullet(X, Y){
         let dY = Y - (phaser.height - (phaser.blockHeight / 2))
-        let dX = X - (this.spritePosition + 28) // ho aggiunto meta sprite larghezza
+        let dX = X - (this.sprite.x + 28) // ho aggiunto meta sprite larghezza
         let m =   dY / dX
         let angle = Math.atan(m) * 180 / 3.1415
         if (dX < 0){
