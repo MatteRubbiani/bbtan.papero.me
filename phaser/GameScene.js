@@ -55,8 +55,16 @@ export default class GameScene extends Phaser.Scene {
         this.input.on("pointerup", () => {
             if (!this.shooting) {
                 this.shooting = true
-                this.fireX = this.input.x
-                this.fireY = this.input.y
+                // non va bene non controlli che si possa fare
+                if (this.input.y < phaser.height - .5 * phaser.blockHeight){
+                    let dY = (phaser.height - (phaser.blockHeight / 2)) - this.input.y
+                    let dX = this.input.x - this.spritePosition
+                    let m =  dY / dX
+                    if (m * m > .05) {
+                        this.fireX = this.input.x
+                        this.fireY = this.input.y
+                    }
+                }
             }
         })
         this.checkGameEnded()
