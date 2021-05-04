@@ -99,11 +99,9 @@ export default {
   @media (max-width: 700px) {
     position: absolute;
     top: 50px;
-    left: 50px;
+    left: 5%;
     width: 90%;
-    margin-left: 5%;
     height: 90%;
-    margin-top: 5%;
   }
   .full-screen {
     width: 50px;
