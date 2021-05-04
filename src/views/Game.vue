@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$theme-color: #59007a;
+$theme-color: #257a00;
 $second-color: #ffffff;
 
 .home_wrapper{

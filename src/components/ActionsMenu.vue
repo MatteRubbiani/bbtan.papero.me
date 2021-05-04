@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$theme-color: #59007a;
+$theme-color: #55efef;
 button{
   font-size: 200%;
 }
@@ -126,7 +126,7 @@ button{
       .level_info_wrapper{
         margin-bottom: 10%;
         .level_info_label{
-          font-size: 300%;
+          font-size: 200%;
           color: white;
         }
       }
