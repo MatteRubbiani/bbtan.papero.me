@@ -1,9 +1,11 @@
 <template>
-<div class="scene_wrapper" id="parent">
-  <div id="fullScreenButton" class="full-screen" @click="fullScreen">
-    <img src="@/assets/fullScreen.png" alt="full screen">
+  <div class="scene_wrapper-container" id="parent-container">
+    <div class="scene_wrapper" id="parent">
+      <div id="fullScreenButton" class="full-screen" @click="fullScreen">
+        <img src="@/assets/fullScreen.png" alt="full screen">
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -61,7 +63,7 @@ export default {
   },
   methods: {
     fullScreen: function (){
-      let elem = document.getElementById('parent')
+      let elem = document.getElementById('parent-container')
       let elem1 = document.getElementById('fullScreenButton')
       if (!this.inFullScreen){
         if (elem.requestFullscreen) {
@@ -90,32 +92,36 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.scene_wrapper {
-  height: 80%;
-  width: 50%;
-  margin-left: 25%;
-  margin-top: 5%;
-  padding: 5px;
-  @media (max-width: 700px) {
-    position: fixed;
-    margin: 3px;
-    padding: 0;
-    top: 50px;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-  }
-  .full-screen {
-    width: 50px;
-    position: absolute;
-    right: 20%;
-    bottom: 10%;
-    @media (max-width: 700px){
-      bottom: 10px;
-      right: 5px;
+.menu_wrapper_container{
+    height: 80%;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 5%;
+    padding: 5px;
+  .scene_wrapper {
+    height: 100%;
+    width: 100%;
+    @media (max-width: 700px) {
+      position: fixed;
+      margin: 3px;
+      padding: 0;
+      top: 50px;
+      left: 5%;
+      width: 90%;
+      height: 90%;
     }
-    img {
-      width: 100%;
+    .full-screen {
+      width: 50px;
+      position: absolute;
+      right: 20%;
+      bottom: 10%;
+      @media (max-width: 700px){
+        bottom: 10px;
+        right: 5px;
+      }
+      img {
+        width: 100%;
+      }
     }
   }
 }
