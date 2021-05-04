@@ -97,10 +97,10 @@ export default {
   margin-top: 5%;
   padding: 5px;
   @media (max-width: 700px) {
-    position: absolute;
+    position: fixed;
     margin: 0;
+    background-color: red;
     top: 50px;
-    left: 5%;
     width: 90%;
     height: 90%;
   }
