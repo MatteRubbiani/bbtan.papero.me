@@ -121,7 +121,6 @@ export default {
   .scene_wrapper {
     height: 100%;
     width: 100%;
-    background-color: red;
     .full-screen {
       width: 50px;
       height: 50px;
