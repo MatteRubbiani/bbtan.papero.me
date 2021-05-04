@@ -109,6 +109,10 @@ export default {
   .scene_wrapper {
     height: 100%;
     width: 100%;
+    &:fullscreen{
+      width: 90%;
+      margin-left: 5%;
+    }
     .full-screen {
       width: 50px;
       height: 50px;
