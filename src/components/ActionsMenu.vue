@@ -77,7 +77,8 @@ button{
     &.visible {
       @media (max-width: 700px) {
         transform: rotate(180deg);
-        top: 50px
+        top: 50px;
+        height: 50px;
       }
     }
   }
