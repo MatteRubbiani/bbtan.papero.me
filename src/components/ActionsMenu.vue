@@ -69,6 +69,7 @@ button{
     width: 50px;
     transform: translateY(85vh);
     transition: .7s;
+    z-index: 2;
 
     img {
       width: 100%;
