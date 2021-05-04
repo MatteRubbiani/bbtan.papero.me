@@ -143,7 +143,7 @@ export default class GameScene extends Phaser.Scene {
         }
         let {x, y} = this.physics.velocityFromAngle(angle, phaser.bulletSpeed);
         const bullet = this.bullets.create(
-        this.spritePosition + 28, // aggiunto meta sprite larghezza
+        this.sprite.x + 28, // aggiunto meta sprite larghezza
         phaser.height - (phaser.blockHeight / 2),
         "bullet");
         bullet.setVelocity(x, y)
