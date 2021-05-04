@@ -93,11 +93,6 @@ export default {
 
 <style scoped lang="scss">
 .scene_wrapper-container{
-    height: 80%;
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 5%;
-    padding: 5px;
   .scene_wrapper {
     height: 100%;
     width: 100%;
