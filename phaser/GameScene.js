@@ -31,6 +31,7 @@ export default class GameScene extends Phaser.Scene {
 
     create(){
         this.graphics = this.add.graphics({ lineStyle: { width: 2, color: 0xaa00aa }})
+        this.cameras.main.setBackgroundColor('#ffffff')
         this.createGroups()
         this.createBlocks()
         this.sprite = this.physics.add.sprite(this.spritePosition, phaser.height - (phaser.blockHeight / 2), "sprite")
