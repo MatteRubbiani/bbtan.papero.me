@@ -100,8 +100,10 @@ export default {
   left: 25%;
   &:fullscreen{
     .scene_wrapper{
-      height: 80%;
-      margin-top: 10%;
+      height: 70%;
+      @media (max-width: 700px) {
+        margin-top: 10%;
+      }
     }
   };
   @media (max-width: 700px) {

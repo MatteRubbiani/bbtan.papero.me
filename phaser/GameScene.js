@@ -182,22 +182,15 @@ export default class GameScene extends Phaser.Scene {
             if (b && b.left > 0){
                 b.y ++
                 cleanBlocks.push(b)
-                //check game over
                 if (b.y >= 9) this.gameOver = true
             }
             if (b && b.textBlock) b.textBlock.destroy()
         })
         this.raw_blocks = cleanBlocks
         let newBlocks = this.generateRow(5, this.level)
-        newBlocks.forEach(block => {
-            if (block) {
-                this.raw_blocks.push(block)
-                if (block.textBlock) block.textBlock.text = ""
-            }
-        })
+        newBlocks.forEach(block => { if (block) this.raw_blocks.push(block) })
         this.blocks.clear(true)
         this.createBlocks()
-        //fai tutto il resto
         this.saveToDb()
         if (this.gameOver) this.finishGame()
     }
