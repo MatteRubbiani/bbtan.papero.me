@@ -192,7 +192,7 @@ export default class GameScene extends Phaser.Scene {
         newBlocks.forEach(block => {
             if (block) {
                 this.raw_blocks.push(block)
-                block.textBlock.text = ""
+                if (block.textBlock) block.textBlock.text = ""
             }
         })
         this.blocks.clear(true)
