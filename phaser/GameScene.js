@@ -43,7 +43,6 @@ export default class GameScene extends Phaser.Scene {
             if (this.bulletsKilled === 0){
                 //this.sprite.x = bullet.x
                 this.spritePosition = bullet.x
-
             }
             this.bulletsKilled ++
             if (this.bulletsKilled >= this.level){
@@ -55,7 +54,6 @@ export default class GameScene extends Phaser.Scene {
         this.input.on("pointerup", () => {
             if (!this.shooting) {
                 this.shooting = true
-                // non va bene non controlli che si possa fare
                 if (this.input.y < phaser.height - .5 * phaser.blockHeight){
                     let dY = (phaser.height - (phaser.blockHeight / 2)) - this.input.y
                     let dX = this.input.x - this.spritePosition
@@ -203,8 +201,6 @@ export default class GameScene extends Phaser.Scene {
     checkGameEnded(){
         this.raw_blocks.forEach(b => {
             if (b && b.left > 0){
-                b.y ++
-                //check game over
                 if (b.y >= 9) this.gameOver = true
             }
         })
