@@ -101,6 +101,7 @@ export default {
   &:fullscreen{
     .scene_wrapper{
       height: 70%;
+      margin-top: 5%;
       @media (max-width: 700px) {
         margin-top: 10%;
       }
