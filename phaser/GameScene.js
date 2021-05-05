@@ -190,7 +190,10 @@ export default class GameScene extends Phaser.Scene {
         this.raw_blocks = cleanBlocks
         let newBlocks = this.generateRow(5, this.level)
         newBlocks.forEach(block => {
-            if (block) this.raw_blocks.push(block)
+            if (block) {
+                this.raw_blocks.push(block)
+                block.textBlock.text = ""
+            }
         })
         this.blocks.clear(true)
         this.createBlocks()
