@@ -43,35 +43,33 @@ export default {
       this.game = res.data ? res.data : this.createNewGame()
     })
   },
-  beforeRouteEnter(to, from, next){
-    const createLocalAccount = () => {
-      axios
+  async beforeMount() {
+    const createLocalAccount = async () => {
+      await axios
           .get(urls.createLocalAccountUrl)
           .then((response) => {
             store.dispatch("setLogged", false);
             store.dispatch("setUsername", response.data.username);
-            next();
           })
           .catch(() => {
             location.href = location.origin + "/error?from=" + location.pathname;
           });
     }
     if (store.state.logged === -1 || store.state.username === "") {
-      axios.get(urls.getLoginInfoUrl)
-          .then(response => {
-            if (!response.data) createLocalAccount();
+      await axios.get(urls.getLoginInfoUrl)
+          .then(async response => {
+            if (!response.data) await createLocalAccount();
             else {
-              store.dispatch("setLogged", response.data.google_signed_in);
-              store.dispatch("setUsername", response.data.username);
-              next();
+              await store.dispatch("setLogged", response.data.google_signed_in);
+              await store.dispatch("setUsername", response.data.username);
             }
           })
           .catch(() => {
             location.href = location.origin + "/error?from=" + location.pathname;
           });
-    } else if(store.state.username === null && store.state.logged === false){
-      createLocalAccount();
-    } else next();
+    } else if(store.state.username === null && store.state.logged === false) {
+      await createLocalAccount();
+    }
   }
 }
 </script>

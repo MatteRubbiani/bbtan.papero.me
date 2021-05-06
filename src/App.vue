@@ -21,6 +21,7 @@ body{
   margin: 0;
   width: 100%;
   height: 100%;
+  font-family: "Comic Sans MS", serif;
 }
 
 h1{
