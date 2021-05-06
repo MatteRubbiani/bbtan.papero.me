@@ -44,49 +44,37 @@ export default {
     })
   },
   beforeMount() {
+    const next = () => {
+      this.$forceUpdate();
+    };
     const createLocalAccount = () => {
-      const request = new XMLHttpRequest()
-      request.open("GET", urls.createLocalAccountUrl, false)
-      request.send(null)
-      if(request.status){
-        console.log(request.responseText)
-        store.dispatch("setLogged", false)
-        store.dispatch("setUsername", request.responseText.username)
-      }
-     /* axios
+      axios
           .get(urls.createLocalAccountUrl)
           .then((response) => {
             store.dispatch("setLogged", false);
             store.dispatch("setUsername", response.data.username);
+            next();
           })
           .catch(() => {
             location.href = location.origin + "/error?from=" + location.pathname;
-          });*/
+          });
     }
     if (store.state.logged === -1 || store.state.username === "") {
-      const request = new XMLHttpRequest()
-      request.open("GET", urls.getLoginInfoUrl, false)
-      request.send(null)
-      if (!request.responseText) createLocalAccount()
-      else {
-        store.dispatch("setLogged", request.responseText.google_signed_in);
-        store.dispatch("setUsername", request.responseText.username);
-      }
-    /*
       axios.get(urls.getLoginInfoUrl)
           .then(response => {
             if (!response.data) createLocalAccount();
             else {
               store.dispatch("setLogged", response.data.google_signed_in);
               store.dispatch("setUsername", response.data.username);
+              next();
             }
           })
           .catch(() => {
             location.href = location.origin + "/error?from=" + location.pathname;
-          });*/
-    } else if(store.state.username === null && store.state.logged === false) {
+          });
+    } else if(store.state.username === null && store.state.logged === false){
       createLocalAccount();
-    }
+    } else next();
   }
 }
 </script>
