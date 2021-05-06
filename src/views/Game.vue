@@ -43,9 +43,17 @@ export default {
       this.game = res.data ? res.data : this.createNewGame()
     })
   },
-  async beforeMount() {
-    const createLocalAccount = async () => {
-      await axios
+  beforeMount() {
+    const createLocalAccount = () => {
+      const request = new XMLHttpRequest()
+      request.open("GET", urls.createLocalAccountUrl, false)
+      request.send(null)
+      if(request.status){
+        console.log(request.responseText)
+        store.dispatch("setLogged", false)
+        store.dispatch("setUsername", request.responseText.username)
+      }
+     /* axios
           .get(urls.createLocalAccountUrl)
           .then((response) => {
             store.dispatch("setLogged", false);
@@ -53,22 +61,31 @@ export default {
           })
           .catch(() => {
             location.href = location.origin + "/error?from=" + location.pathname;
-          });
+          });*/
     }
     if (store.state.logged === -1 || store.state.username === "") {
-      await axios.get(urls.getLoginInfoUrl)
-          .then(async response => {
-            if (!response.data) await createLocalAccount();
+      const request = new XMLHttpRequest()
+      request.open("GET", urls.getLoginInfoUrl, false)
+      request.send(null)
+      if (!request.responseText) createLocalAccount()
+      else {
+        store.dispatch("setLogged", request.responseText.google_signed_in);
+        store.dispatch("setUsername", request.responseText.username);
+      }
+    /*
+      axios.get(urls.getLoginInfoUrl)
+          .then(response => {
+            if (!response.data) createLocalAccount();
             else {
-              await store.dispatch("setLogged", response.data.google_signed_in);
-              await store.dispatch("setUsername", response.data.username);
+              store.dispatch("setLogged", response.data.google_signed_in);
+              store.dispatch("setUsername", response.data.username);
             }
           })
           .catch(() => {
             location.href = location.origin + "/error?from=" + location.pathname;
-          });
+          });*/
     } else if(store.state.username === null && store.state.logged === false) {
-      await createLocalAccount();
+      createLocalAccount();
     }
   }
 }
