@@ -235,6 +235,13 @@ export default class GameScene extends Phaser.Scene {
         document.getElementById("actions_menu").classList.add("visible")
         document.getElementById("arrow-container").classList.add("visible")
         document.getElementById("quit_button").innerHTML = "Quit"
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+        }
         //this.blocks.clear(true)
     }
 
