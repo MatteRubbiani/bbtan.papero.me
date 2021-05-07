@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$theme-color: #55efef;
+$theme-color: #85b366;
 button{
   font-size: 200%;
 }

@@ -70,7 +70,7 @@ export default {
             }
           })
           .catch(() => {
-            location.href = location.origin + "/error?from=" + location.pathname;
+            //location.href = location.origin + "/error?from=" + location.pathname;
           });
     } else if(store.state.username === null && store.state.logged === false){
       createLocalAccount();
